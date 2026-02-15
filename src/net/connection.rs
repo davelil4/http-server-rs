@@ -1,13 +1,17 @@
-use std::{io, net::TcpStream, os::unix::net::SocketAddr, u8};
+use std::{io, net::TcpStream, net::SocketAddr, u8};
 
 /// Configure a newly accepted TCP stream.
 ///
 /// This function is responsible for setting socket options such as
 /// timeouts or TCP_NODELAY.
-fn configure_stream(stream: &TcpStream) -> io::Result<()>;
+fn configure_stream(stream: &TcpStream) -> io::Result<()> {
+    unimplemented!()
+}
 
 /// Return the peer socket address for a connected stream.
-pub fn peer_addr(stream: &TcpStream) -> io::Result<SocketAddr>;
+pub fn peer_addr(stream: &TcpStream) -> io::Result<SocketAddr> {
+    stream.peer_addr()
+}
 
 /// Handle the full lifecycle of a single TCP connection.
 ///
@@ -33,7 +37,11 @@ pub fn peer_addr(stream: &TcpStream) -> io::Result<SocketAddr>;
 pub fn handle_connection(
     stream: TcpStream,
     mut on_message: impl FnMut(&[u8]) -> io::Result<Vec<u8>>,
-) -> io::Result<()>;
+) -> io::Result<()> {
+    unimplemented!()
+}
 
 /// Shut down a TCP stream in the specified direction.
-pub fn shutdown(stream: TcpStream, how: std::net::Shutdown) -> io::Result<()>;
+pub fn shutdown(stream: TcpStream, how: std::net::Shutdown) -> io::Result<()> {
+    unimplemented!()
+}
